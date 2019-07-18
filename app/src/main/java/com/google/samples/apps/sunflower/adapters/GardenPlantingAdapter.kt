@@ -30,6 +30,9 @@ import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings
 import com.google.samples.apps.sunflower.databinding.ListItemGardenPlantingBinding
 import com.google.samples.apps.sunflower.viewmodels.PlantAndGardenPlantingsViewModel
 
+/**
+ * 这是adapter
+ */
 class GardenPlantingAdapter :
     ListAdapter<PlantAndGardenPlantings, GardenPlantingAdapter.ViewHolder>(GardenPlantDiffCallback()) {
 
@@ -55,6 +58,7 @@ class GardenPlantingAdapter :
         return View.OnClickListener {
                 val direction =
                         GardenFragmentDirections.actionGardenFragmentToPlantDetailFragment(plantId)
+               //找到上个目标，然后跳转到当前的目标
                 it.findNavController().navigate(direction)
         }
     }

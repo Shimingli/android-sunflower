@@ -19,9 +19,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <!--一个点击事件-->
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
+        <!--一个View Model-->
         <variable
             name="viewModel"
             type="com.google.samples.apps.sunflower.viewmodels.PlantAndGardenPlantingsViewModel"/>

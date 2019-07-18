@@ -24,6 +24,7 @@ import androidx.room.Query
 
 /**
  * The Data Access Object for the Plant class.
+ * Plant类的数据访问对象。
  */
 @Dao
 interface PlantDao {
@@ -36,6 +37,9 @@ interface PlantDao {
     @Query("SELECT * FROM plants WHERE id = :plantId")
     fun getPlant(plantId: String): LiveData<Plant>
 
+    /**
+     * 插入数据
+     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(plants: List<Plant>)
 }

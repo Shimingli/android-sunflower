@@ -28,21 +28,27 @@ import com.google.samples.apps.sunflower.data.Plant
 import com.google.samples.apps.sunflower.utilities.PLANT_DATA_FILENAME
 import kotlinx.coroutines.coroutineScope
 
+/**
+ * CoroutineWorker :提供与Kotlin协同程序互操作的[ListenableWorker]实现
+ * 插入数据
+ */
 class SeedDatabaseWorker(
     context: Context,
     workerParams: WorkerParameters
 ) : CoroutineWorker(context, workerParams) {
-
+    // 初始化TAG的名称
     private val TAG by lazy { SeedDatabaseWorker::class.java.simpleName }
-
+    // suspend  Kotlin Coroutine，只需增加 suspend 关键字，就能达到同 Callback 风格相同的效率。
     override suspend fun doWork(): Result = coroutineScope {
 
         try {
+            //打开资源的文件
             applicationContext.assets.open(PLANT_DATA_FILENAME).use { inputStream ->
                 JsonReader(inputStream.reader()).use { jsonReader ->
                     val plantType = object : TypeToken<List<Plant>>() {}.type
                     val plantList: List<Plant> = Gson().fromJson(jsonReader, plantType)
-
+                    //shiming  name===applicationContext DefaultDispatcher-worker-1
+                    println("shiming  name===applicationContext "+      Thread.currentThread().name)
                     val database = AppDatabase.getInstance(applicationContext)
                     database.plantDao().insertAll(plantList)
 

@@ -26,6 +26,7 @@ import com.google.samples.apps.sunflower.viewmodels.PlantListViewModelFactory
 
 /**
  * Static methods used to inject classes needed for various Activities and Fragments.
+ * 用于注入各种活动和片段所需的类的静态方法。
  */
 object InjectorUtils {
 

@@ -25,6 +25,7 @@ import androidx.room.Transaction
 
 /**
  * The Data Access Object for the [GardenPlanting] class.
+ * 数据库类
  */
 @Dao
 interface GardenPlantingDao {

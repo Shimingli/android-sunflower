@@ -21,10 +21,17 @@ import java.util.Calendar
 
 /**
  * Type converters to allow Room to reference complex data types.
+ * 类型转换器，允许空间引用复杂的数据类型。
  */
 class Converters {
+    /**
+     * TypeConverter 将方法标记为类型转换器。类可以有任意多个@typeconverter方法。
+     */
     @TypeConverter fun calendarToDatestamp(calendar: Calendar): Long = calendar.timeInMillis
 
+    /**
+     * 把毫秒值转化为一个对象
+     */
     @TypeConverter fun datestampToCalendar(value: Long): Calendar =
             Calendar.getInstance().apply { timeInMillis = value }
 }

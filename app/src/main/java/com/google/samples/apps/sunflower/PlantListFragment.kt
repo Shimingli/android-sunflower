@@ -67,6 +67,10 @@ class PlantListFragment : Fragment() {
         }
     }
 
+    /**
+     * 观察了生命周期，在viewModel中获取了数据
+     * 然后数据赋予到adapter上去
+     */
     private fun subscribeUi(adapter: PlantAdapter) {
         viewModel.plants.observe(viewLifecycleOwner) { plants ->
             /**

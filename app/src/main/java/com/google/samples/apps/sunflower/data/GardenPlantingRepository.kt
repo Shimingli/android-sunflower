@@ -47,9 +47,13 @@ class GardenPlantingRepository private constructor(
 
         // For Singleton instantiation
         @Volatile private var instance: GardenPlantingRepository? = null
-
         fun getInstance(gardenPlantingDao: GardenPlantingDao) =
                 instance ?: synchronized(this) {
+                    instance ?: GardenPlantingRepository(gardenPlantingDao).also {
+                        println("shiming instance"+instance)
+                        instance = it
+                        println("shiming instance"+instance)
+                    }
                     instance ?: GardenPlantingRepository(gardenPlantingDao).also { instance = it }
                 }
     }

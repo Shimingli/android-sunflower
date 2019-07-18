@@ -28,6 +28,7 @@ data class Plant(
     val name: String,
     val description: String,
     val growZoneNumber: Int,
+    // 给与一个定值，就可以在data class 不用传递
     val wateringInterval: Int = 7, // how often the plant should be watered, in days
     val imageUrl: String = ""
 ) {

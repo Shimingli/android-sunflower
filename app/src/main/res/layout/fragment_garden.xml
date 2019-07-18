@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018 Google LLC
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,37 +18,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 这是上个页面传递过来的数据 -->
     <data>
 
         <variable
-                name="hasPlantings"
-                type="boolean" />
+            name="hasPlantings"
+            type="boolean" />
+
+        <variable
+            name="tip"
+            type="String" />
 
     </data>
 
     <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--hasPlantings 这个值会Binding的时候，把这个值找到，然后就可设置不可见了-->
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/garden_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingLeft="@dimen/margin_normal"
-                android:paddingRight="@dimen/margin_normal"
-                app:isGone="@{!hasPlantings}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/list_item_garden_planting"/>
+            android:id="@+id/garden_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingLeft="@dimen/margin_normal"
+            android:paddingRight="@dimen/margin_normal"
+            app:isGone="@{!hasPlantings}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_garden_planting" />
 
         <TextView
-                android:id="@+id/empty_garden"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/garden_empty"
-                android:textSize="24sp"
-                app:isGone="@{hasPlantings}"/>
+            android:id="@+id/empty_garden"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/garden_empty"
+            android:textSize="24sp"
+            app:isGone="@{hasPlantings}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="55sp"
+            app:setTip="@{tip}" />
+
 
     </FrameLayout>
 

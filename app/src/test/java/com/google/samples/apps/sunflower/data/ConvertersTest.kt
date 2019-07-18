@@ -33,10 +33,14 @@ class ConvertersTest {
     }
 
     @Test fun calendarToDatestamp() {
+        println("shiming "+cal.timeInMillis)
+        println("shiming "+Converters().calendarToDatestamp(cal))
         assertEquals(cal.timeInMillis, Converters().calendarToDatestamp(cal))
     }
 
     @Test fun datestampToCalendar() {
+        println("shiming "+Converters().datestampToCalendar(cal.timeInMillis))
+        println("shiming "+cal)
         assertEquals(Converters().datestampToCalendar(cal.timeInMillis), cal)
     }
 }

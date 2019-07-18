@@ -25,7 +25,7 @@ import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings
 class GardenPlantingListViewModel internal constructor(
     gardenPlantingRepository: GardenPlantingRepository
 ) : ViewModel() {
-
+    //查找数据中的值
     val gardenPlantings = gardenPlantingRepository.getGardenPlantings()
 
     val plantAndGardenPlantings: LiveData<List<PlantAndGardenPlantings>> =
